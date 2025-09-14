@@ -27,7 +27,6 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  border: 1px solid red;
   width: 100vw;
   overflow-x: hidden;
 }
@@ -223,3 +222,4 @@ header p {
     margin: 10px 0;
   }
 }
+
