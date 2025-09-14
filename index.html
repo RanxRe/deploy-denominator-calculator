@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denomination Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-calculator"></i> Denomination Calculator</h1>
+            <p>Enter the quantity of each denomination to calculate the total amount</p>
+        </header>
+
+        <div class="calculator-container">
+            <div class="denomination-section">
+                <h2><i class="fas fa-money-bill-wave"></i> Notes</h2>
+                <div class="denomination-grid" id="notes-grid">
+                    <!-- Notes will be added here by JavaScript -->
+                </div>
+            </div>
+
+            <div class="denomination-section">
+                <h2><i class="fas fa-coins"></i> Coins</h2>
+                <div class="denomination-grid" id="coins-grid">
+                    <!-- Coins will be added here by JavaScript -->
+                </div>
+            </div>
+
+            <div class="total-section">
+                <div class="total-display">
+                    <span>Total Amount:</span>
+                    <span id="total-amount">₹0</span>
+                </div>
+                <button id="reset-btn"><i class="fas fa-redo"></i> Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,225 @@
+:root {
+  --primary-color: #4361ee;
+  --secondary-color: #3f37c9;
+  --accent-color: #4895ef;
+  --dark-color: #2b2d42;
+  --light-color: #f8f9fa;
+  --success-color: #4cc9f0;
+  --warning-color: #f72585;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f7fa;
+  color: var(--dark-color);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid red;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.calculator-container {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.denomination-section {
+  margin-bottom: 30px;
+}
+
+.denomination-section h2 {
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.denomination-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px; /* Increased gap */
+  width: 100%;
+}
+
+.denomination-item {
+  display: flex;
+  align-items: center;
+  background-color: var(--light-color);
+  padding: 15px;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+  min-height: 80px; /* Ensure consistent height */
+  box-sizing: border-box;
+  width: 100%; /* Ensure full width within grid cell */
+  margin: 0; /* Remove any default margins */
+}
+
+.denomination-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.denomination-value {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--dark-color);
+  min-width: 80px;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* .denomination-total {
+  font-weight: 600;
+  margin-left: 10px;
+  text-align: left;
+  color: var(--primary-color);
+  
+  
+} */
+.denomination-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  text-align: right;
+  /* margin: 0 15px; */
+  transition: border 0.3s;
+}
+
+.denomination-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(72, 149, 239, 0.2);
+}
+
+.denomination-total {
+  font-weight: 600;
+  min-width: 100%;
+  margin-left: 10px;
+  text-align: left;
+  color: var(--primary-color);
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add ellipsis if text overflows */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.total-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.total-display {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.total-display span:first-child {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+#total-amount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+#reset-btn {
+  background-color: var(--warning-color);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#reset-btn:hover {
+  background-color: #d91a6d;
+  transform: translateY(-2px);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .denomination-grid {
+    grid-template-columns: 1fr;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .total-section {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+
+  .calculator-container {
+    padding: 15px;
+  }
+
+  .denomination-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .denomination-input {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
