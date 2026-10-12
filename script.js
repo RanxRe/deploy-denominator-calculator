@@ -244,3 +244,35 @@
 
   update();
 })();
+/* =========================================================
+   NAV TOGGLE — shared between views
+   ========================================================= */
+(function () {
+  'use strict';
+
+  const tabs   = document.querySelectorAll('.tab[data-view]');
+  const views  = document.querySelectorAll('.view');
+
+  function show(viewId) {
+    views.forEach(function (v) {
+      v.classList.toggle('hidden', v.id !== viewId);
+    });
+    tabs.forEach(function (t) {
+      const active = t.dataset.view === viewId;
+      t.classList.toggle('active', active);
+      t.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+    // Scroll to top so the new view starts at the top
+    window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+  }
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      show(tab.dataset.view);
+    });
+  });
+
+  // Optional: allow #age / #denom in the URL to open a specific view
+  if (location.hash === '#age') show('view-age');
+  if (location.hash === '#denom') show('view-denom');
+})();
