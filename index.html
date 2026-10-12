@@ -4,41 +4,93 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0f766e">
-  <meta name="description" content="A mobile-first denomination calculator for Indian notes and coins.">
-  <title>Denocal - Denomination Calculator</title>
+  <meta name="description" content="Denomination calculator and age calculator — mobile-first, fully responsive.">
+  <title>Calculators</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
+  <script src="script1.js" defer></script>
 </head>
 <body>
 
+  <!-- =========================================================
+       NAVIGATION BAR
+       ========================================================= -->
+  <nav class="nav" aria-label="Calculator switcher">
+    <div class="nav-inner">
+      <span class="brand">Calculators</span>
+      <div class="tabs" role="tablist">
+        <button class="tab active" type="button" role="tab"
+                data-view="view-denom" aria-selected="true">Denomination</button>
+        <button class="tab" type="button" role="tab"
+                data-view="view-age" aria-selected="false">Age</button>
+      </div>
+    </div>
+  </nav>
+
   <div class="wrap">
 
-    <header class="head">
-      <h1>Denomination Calculator</h1>
-      <p>Enter how many notes and coins you have — get the total.</p>
-    </header>
+    <!-- =========================================================
+         VIEW 1 — DENOMINATION CALCULATOR
+         ========================================================= -->
+    <section id="view-denom" class="view" aria-label="Denomination calculator">
 
-    <!-- Denomination rows are injected here by script.js -->
-    <section class="grid" id="grid" aria-label="Denominations"></section>
+      <header class="head">
+        <h1>Denomination Calculator</h1>
+        <p>Enter how many notes and coins you have — get the total.</p>
+      </header>
 
-    <section class="summary" aria-label="Summary">
+      <section class="grid" id="grid" aria-label="Denominations"></section>
 
-      <div class="total">
-        <span class="label">Total</span>
-        <span class="amount" id="total">₹0</span>
+      <section class="summary" aria-label="Summary">
+        <div class="total">
+          <span class="label">Total</span>
+          <span class="amount" id="total">₹0</span>
+        </div>
+        <div class="meta"><strong id="pieces">0</strong> notes &amp; coins in total</div>
+        <div class="breakdown" id="breakdown"></div>
+        <div class="actions">
+          <button class="btn" id="clear" type="button">Clear all</button>
+          <button class="btn primary" id="copy" type="button">Copy summary</button>
+        </div>
+      </section>
+
+    </section>
+
+    <!-- =========================================================
+         VIEW 2 — AGE CALCULATOR
+         ========================================================= -->
+    <section id="view-age" class="view hidden" aria-label="Age calculator">
+
+      <header class="head">
+        <h1>Age Calculator</h1>
+        <p>Find your exact age in years, months, and days.</p>
+      </header>
+
+      <div class="panel">
+        <div class="field">
+          <label for="dob">Date of birth</label>
+          <input type="date" id="dob">
+        </div>
+        <div class="field">
+          <label for="asof">Age as of</label>
+          <input type="date" id="asof">
+        </div>
       </div>
 
-      <div class="meta">
-        <strong id="pieces">0</strong> notes &amp; coins in total
-      </div>
-
-      <div class="breakdown" id="breakdown"></div>
-
-      <div class="actions">
-        <button class="btn" id="clear" type="button">Clear all</button>
-        <button class="btn primary" id="copy" type="button">Copy summary</button>
-      </div>
+      <section class="summary" aria-label="Age result">
+        <div class="total">
+          <span class="label">Your age</span>
+          <span class="amount" id="age-main">—</span>
+        </div>
+        <div class="breakdown" id="age-breakdown">
+          <p class="empty">Enter a date of birth to begin.</p>
+        </div>
+        <div class="actions">
+          <button class="btn" id="age-reset" type="button">Reset</button>
+          <button class="btn primary" id="age-copy" type="button">Copy result</button>
+        </div>
+      </section>
 
     </section>
 
